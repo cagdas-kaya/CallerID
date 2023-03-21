@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CallerID</string>
+    <string name="notification_title">CallerID - Running</string>
+    <string name="notification_text">Incoming Number: </string>
+    <string name="overlay_dialog_title">Screen Overlay Permission </string>
+    <string name="overlay_dialog_text">To change this permission setting, you first have to turn on the screen overlay from Settings > Apps  </string>
+    <string name="overlay_dialog_button"> Settings </string>
 </resources>

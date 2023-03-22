@@ -3,6 +3,7 @@ package com.callerid.Bcallerid.Utils
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.webkit.GeolocationPermissions
 import android.webkit.ValueCallback
 import android.webkit.WebChromeClient
 import android.webkit.WebView
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MyWebChromeClient(
     private val activity: AppCompatActivity,
-    ) : WebChromeClient() {
+) : WebChromeClient() {
 
     override fun onShowFileChooser(
         mWebView: WebView?,
@@ -21,6 +22,13 @@ class MyWebChromeClient(
         mFilePathCallback = filePathCallback
         openImageChooser()
         return true
+    }
+
+    override fun onGeolocationPermissionsShowPrompt(
+        origin: String?,
+        callback: GeolocationPermissions.Callback
+    ) {
+        callback.invoke(origin, true, false)
     }
 
     private fun openImageChooser() {

@@ -5,4 +5,8 @@
     <string name="overlay_dialog_title">Screen Overlay Permission </string>
     <string name="overlay_dialog_text">To change this permission setting, you first have to turn on the screen overlay from Settings > Apps  </string>
     <string name="overlay_dialog_button"> Settings </string>
+    <string name="downloading_file"> Downloading File </string>
+    <string name="print_document"> Print Document </string>
+    <string name="print_complete"> Print Complete </string>
+    <string name="print_error"> Print Error </string>
 </resources>

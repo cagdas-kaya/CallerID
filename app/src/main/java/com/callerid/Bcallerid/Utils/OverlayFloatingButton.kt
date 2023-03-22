@@ -7,6 +7,7 @@ import android.graphics.PixelFormat
 import android.os.Build
 import android.view.*
 import com.callerid.Bcallerid.Services.OverlayFloatingButtonService
+import com.callerid.Bcallerid.Utils.Constants
 import com.callerid.Bcallerid.databinding.FloatingButtonLayoutBinding
 import kotlin.math.abs
 
@@ -19,8 +20,10 @@ class OverlayFloatingButton(private val context: Context) {
     private var initialTouchX = 0
     private var initialTouchY = 0
     private lateinit var binding: FloatingButtonLayoutBinding
+    private lateinit var mPhoneNumber: String
 
-    fun show() {
+    fun show(phoneNumber: String) {
+        mPhoneNumber = phoneNumber
         binding = FloatingButtonLayoutBinding.inflate(LayoutInflater.from(context))
         val layoutParams = getButtonLayoutParams()
         floatingButton = binding.overlayButtonView
@@ -74,7 +77,10 @@ class OverlayFloatingButton(private val context: Context) {
                     val diffY = motionEvent.rawY - initialTouchY
 
                     if (abs(diffX) < clickThreshold && abs(diffY) < clickThreshold) {
-                        //Todo click
+                        val intent = Intent(context, MainActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        intent.putExtra(Constants.EXTRA_URL, Constants.URL_CALLER_ID + mPhoneNumber)
+                        context.startActivity(intent)
                     }
                     true
                 }

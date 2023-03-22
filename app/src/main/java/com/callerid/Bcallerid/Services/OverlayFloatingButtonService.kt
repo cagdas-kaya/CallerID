@@ -20,7 +20,7 @@ class OverlayFloatingButtonService : Service() {
         createNotificationChannel()
         createService()
         overlayFloatingButton = OverlayFloatingButton(this)
-        overlayFloatingButton.show()
+        overlayFloatingButton.show(phoneNumber)
         return START_STICKY
     }
 
